@@ -3,6 +3,7 @@ using UnityEngine;
 public class Collectiblle : MonoBehaviour
 {
     public float rotationSpeed;
+    public GameObject onCollectEffect;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +18,13 @@ public class Collectiblle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Destroi os collectibl
-        Destroy(gameObject);
+       
+        
+            //Destroi os collectibl
+            Destroy(gameObject);
+            // instantiate the particle effect
+            Instantiate(onCollectEffect, transform.position, transform.rotation);
+       
+      
     }
 }
